@@ -17,7 +17,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 style="text-align: center" class="card-title">FORM CREATE JOB</h4>
+                    <h4 style="text-align: center" class="card-title">MẪU TẠO CÔNG VIỆC</h4>
                     <br />
                     <div class="col-md-4i">
                         <form asp-action="Create" enctype="multipart/form-data" id="form">
@@ -87,11 +87,11 @@
                                     </div>
                                     <br />
                                     <div class="form-group text-center">
-                                        <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Create" class="btn btn-primary" />
+                                        <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Tạo công việc" class="btn btn-primary" />
                                     </div>
                                     <br />
                                     <div class="form-group text-center">
-                                        <a class="btn btn-primary" href="/employer/job/@user.Id">Back to List</a>
+                                        <a class="btn btn-primary" href="/employer/job/@user.Id">Quay lại danh sách</a>
                                     </div>
                                 </div>
                             </div>
@@ -112,17 +112,17 @@
     <script>
         function onCreate() {
             Swal.fire({
-                title: 'Add new job?',
-                text: "Are you sure to add this new job?",
+                title: 'Thêm công việc mới?',
+                text: "Bạn có chắc chắn muốn thêm công việc này?",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: 'Xác nhận'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Success!',
+                        'Thành công!',
                         '',
                         'success'
                     )
@@ -139,15 +139,15 @@
         });
     </script>
 
-
     <script>
         new MultiSelectTag('skill', {
-            rounded: true,    // default true
-            shadow: true,      // default false
-            placeholder: 'Search',  // default Search...
+            rounded: true,    // mặc định true
+            shadow: true,      // mặc định false
+            placeholder: 'Tìm kiếm',  // mặc định là Tìm kiếm...
             onChange: function (values) {
                 console.log(values)
             }
         })
     </script>
+
 }

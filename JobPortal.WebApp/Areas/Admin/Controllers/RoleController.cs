@@ -25,6 +25,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult ListRoles()
         {
+            // Lấy danh sách tất cả vai trò
             var roles = roleManager.Roles;
             return View(roles);
         }
@@ -64,17 +65,16 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
             return View(model);
         }
 
-        // Chỉnh sửa các Roles
         [Route("edit-role/{id}")]
         [HttpGet]
         public async Task<IActionResult> EditRole(Guid id)
         {
-            // Find the role by Role ID
+            // Tìm vai trò theo ID
             var role = await roleManager.FindByIdAsync(id.ToString());
 
             if (role == null)
             {
-                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
+                ViewBag.ErrorMessage = $"Không tìm thấy vai trò với ID = {id}";
                 return View("NotFound");
             }
 
@@ -85,9 +85,9 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
                 RoleDescription = role.Description
             };
 
+            // Lấy danh sách người dùng trong vai trò này
             foreach (var user in userManager.Users)
             {
-
                 if (await userManager.IsInRoleAsync(user, role.Name))
                 {
                     model.Users.Add(user.UserName);
@@ -104,8 +104,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
             var role = await roleManager.FindByIdAsync(model.Id.ToString());
             if (role == null)
             {
-                ViewBag.ErrorMessage =
-                    $"Role with Id: {model.Id} could not be found";
+                ViewBag.ErrorMessage = $"Không tìm thấy vai trò với ID: {model.Id}";
                 return View("NotFound");
             }
 
@@ -134,12 +133,13 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
 
             if (role == null)
             {
-                ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
+                ViewBag.ErrorMessage = $"Không tìm thấy vai trò với ID = {roleId}";
                 return View("NotFound");
             }
 
             var model = new List<UserRoleViewModel>();
 
+            // Lấy danh sách người dùng và kiểm tra vai trò
             foreach (var user in userManager.Users)
             {
                 var userRoleViewModel = new UserRoleViewModel
@@ -171,7 +171,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
 
             if (role == null)
             {
-                ViewBag.ErrorMessage = $"Role with Id = {roleId} cannot be found";
+                ViewBag.ErrorMessage = $"Không tìm thấy vai trò với ID = {roleId}";
                 return View("NotFound");
             }
 
@@ -181,6 +181,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
 
                 IdentityResult result = null;
 
+                // Thêm hoặc xóa vai trò cho người dùng
                 if (model[i].IsSelected && !(await userManager.IsInRoleAsync(user, role.Name)))
                 {
                     result = await userManager.AddToRoleAsync(user, role.Name);
@@ -214,7 +215,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
 
             if (role == null)
             {
-                ViewBag.ErrorMessage = $"Role with Id = {id} cannot be found";
+                ViewBag.ErrorMessage = $"Không tìm thấy vai trò với ID = {id}";
                 return View("NotFound");
             }
             else

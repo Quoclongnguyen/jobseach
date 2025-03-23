@@ -1,7 +1,7 @@
 ﻿@model List<Dictionary<string, string>>
 
 @{
-    ViewData["Title"] = "User manager";
+    ViewData["Title"] = "Quản lý người dùng";
 }
 
 <div class="content-wrapper">
@@ -9,22 +9,22 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title" style="text-align:center">List Account With Role</h4>
+                    <h4 class="card-title" style="text-align:center">Danh sách tài khoản và vai trò</h4>
                     <br />
                     <div class="table-responsive">
                         <table class="table table-bordered" style="text-align: center">
                             <thead>
                                 <tr>
                                     <th>
-                                        Account
+                                        Tài khoản
                                     </th>
                                     <th>
-                                        Avatar
+                                        Ảnh đại diện
                                     </th>
                                     <th>
-                                        Role
+                                        Vai trò
                                     </th>
-                                    <th>Action</th>
+                                    <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,31 +35,31 @@
                                         <td><img src="https://localhost:7211/images/employers/@user["Avatar"]" style="width: 50px" /></td>
                                         <td>@user["RoleNames"]</td>
                                         <td>
-                                            <a class="btn btn-primary" asp-action="ManageUserRoles" asp-route-userId="@user["userId"]">Set Role</a>
+                                            <a class="btn btn-primary" asp-action="ManageUserRoles" asp-route-userId="@user["userId"]">Cài đặt vai trò</a>
                                         </td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
                     </div>
-                    @*<!--Page list-->
+                    @*<!--Danh sách phân trang-->
                     <div class="text-center">
-                        <ul class="pagination">
-                            @Html.PagedListPager((IPagedList)Model, page =>
-                            Url.Action("Index", new { page }),
-                            new PagedListRenderOptions
-                            {
-                            Display = PagedListDisplayMode.IfNeeded,
-                            LiElementClasses = new string[] { "page-item" },
-                            UlElementClasses = new string[] { "pagination" },
-                            PageClasses = new string[] { "page-link" },
-                            MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                            LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                            LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                            LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                            LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
-                            })
-                        </ul>
+                    <ul class="pagination">
+                    @Html.PagedListPager((IPagedList)Model, page =>
+                    Url.Action("Index", new { page }),
+                    new PagedListRenderOptions
+                    {
+                    Display = PagedListDisplayMode.IfNeeded,
+                    LiElementClasses = new string[] { "page-item" },
+                    UlElementClasses = new string[] { "pagination" },
+                    PageClasses = new string[] { "page-link" },
+                    MaximumPageNumbersToDisplay = 7, // Số trang hiển thị tối đa
+                    LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                    LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                    LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                    LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                    })
+                    </ul>
                     </div>*@
                 </div>
             </div>

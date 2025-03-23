@@ -1,34 +1,34 @@
 ﻿@model JobPortal.Data.Entities.Category
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Tạo mới danh mục";
 }
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title text-center">FORM CREATE CATEGORY</h4>
+                    <h4 class="card-title text-center">FORM TẠO DANH MỤC</h4>
                     <br />
                     <div class="row">
                         <div class="col-md-8 mx-auto">
                             <form asp-action="Create" enctype="multipart/form-data" id="form">
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Name" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Name" class="form-label">Tên danh mục</label><span class="text-danger">*</span>
                                     <input asp-for="Name" class="form-control" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Description" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Description" class="form-label">Mô tả</label><span class="text-danger">*</span>
                                     <input asp-for="Description" class="form-control" />
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
                                 <div class="form-group text-center" style="margin-bottom: 15px">
-                                    <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Create" class="btn btn-primary" />
+                                    <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Tạo mới" class="btn btn-primary" />
                                 </div>
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="text-center">
-                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/category">Back to List</a>
+                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/category">Quay lại danh sách</a>
                                 </div>
                             </form>
                         </div>
@@ -46,17 +46,17 @@
     <script>
         function onCreate() {
             Swal.fire({
-                title: 'Add new category?',
-                text: "Are you sure to add new category?",
+                title: 'Thêm danh mục mới?',
+                text: "Bạn có chắc chắn muốn thêm danh mục mới không?",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Success'
+                confirmButtonText: 'Xác nhận'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Created!',
+                        'Đã tạo!',
                         '',
                         'success'
                     )

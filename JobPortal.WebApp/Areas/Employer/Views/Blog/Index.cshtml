@@ -18,16 +18,16 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-description">
-                        <a class="btn btn-primary" href="/employer/blog/create/@user.Id">Add new blog</a>
+                        <a class="btn btn-primary" href="/employer/blog/create/@user.Id">Thêm bài viết mới</a>
                     </p>
                     @*<form asp-action="Index" method="get" class="form-inline">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input type="text" class="form-control" name="q" style="height: 2.3rem!important;">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">Filter</button>
+                    <div class="form-group mx-sm-3 mb-2">
+                    <input type="text" class="form-control" name="q" style="height: 2.3rem!important;">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Lọc</button>
                     </form>*@
                     <form asp-action="DeleteSelected" method="post">
-                        <input type="submit" class="btn btn-danger" value="Delete Selected" onclick="return confirm('Confirm deletion of the selected sections?') " />
+                        <input type="submit" class="btn btn-danger" value="Xóa mục đã chọn" onclick="return confirm('Xác nhận xóa các mục đã chọn?') " />
 
                         @section Scripts {
                             <script>
@@ -69,8 +69,8 @@
                                             <td>@Html.DisplayFor(modelBlog => blog.Title)</td>
                                             <td><img src="https://localhost:7211/images/blogs/@blog.Image" style="width: 200px" /></td>
                                             <td>
-                                                <a style="color: blue" href="/employer/blog/update/@blog.Id">Update</a> |
-                                                <a style="color: red" href="#" onclick="onDelete(@blog.Id)">Delete</a>
+                                                <a style="color: blue" href="/employer/blog/update/@blog.Id">Cập nhật</a> |
+                                                <a style="color: red" href="#" onclick="onDelete(@blog.Id)">Xóa</a>
                                             </td>
                                         </tr>
                                     }

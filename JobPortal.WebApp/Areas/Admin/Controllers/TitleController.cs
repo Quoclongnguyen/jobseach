@@ -25,10 +25,10 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [Route("index")]
         public async Task<IActionResult> Index(int? page)
         {
-            int pageSize = 10; //number of titles per page
+            int pageSize = 10; // Số lượng tiêu đề hiển thị trên mỗi trang
 
-            var title = await _context.Titles.OrderBy(t => t.Name).ToListAsync();
-            return View(title.ToPagedList(page ?? 1, pageSize));
+            var titles = await _context.Titles.OrderBy(t => t.Name).ToListAsync();
+            return View(titles.ToPagedList(page ?? 1, pageSize));
         }
 
         [Route("create")]
@@ -47,7 +47,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
                 Title title = new Title()
                 {
                     Name = model.Name,
-                    Slug = TextHelper.ToUnsignString(model.Name).ToLower(),
+                    Slug = TextHelper.ToUnsignString(model.Name).ToLower(), // Tạo slug từ tên
                 };
                 _context.Titles.Add(title);
                 await _context.SaveChangesAsync();
@@ -59,6 +59,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [Route("update/{id}")]
         public IActionResult Update(int id)
         {
+            // Lấy tiêu đề theo ID
             var title = _context.Titles.Where(t => t.Id == id).First();
             return View(title);
         }
@@ -68,9 +69,10 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, UpdateTitleViewModel model)
         {
+            // Cập nhật thông tin tiêu đề
             Title title = _context.Titles.Where(t => t.Id == id).First();
             title.Name = model.Name;
-            title.Slug = TextHelper.ToUnsignString(title.Name).ToLower();
+            title.Slug = TextHelper.ToUnsignString(title.Name).ToLower(); // Tạo slug từ tên
             _context.Titles.Update(title);
             await _context.SaveChangesAsync();
             return Redirect("/admin/title");
@@ -81,6 +83,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         {
             try
             {
+                // Xóa tiêu đề theo ID
                 Title title = _context.Titles.Where(t => t.Id == id).First();
                 _context.Titles.Remove(title);
                 _context.SaveChanges();
@@ -95,6 +98,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [HttpPost("delete-selected")]
         public async Task<IActionResult> DeleteSelected(int[] listDelete)
         {
+            // Xóa danh sách tiêu đề được chọn
             foreach (int id in listDelete)
             {
                 var title = await _context.Titles.FindAsync(id);

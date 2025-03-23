@@ -9,7 +9,7 @@
 
 @{
     var user = await userManager.GetUserAsync(User);
-    ViewData["Title"] = "Job";
+    ViewData["Title"] = "Danh sách Công việc";
 }
 
 <div class="content-wrapper">
@@ -18,16 +18,10 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-description">
-                        <a class="btn btn-primary" href="/employer/job/@user.Id/create">Add new job</a>
+                        <a class="btn btn-primary" href="/employer/job/@user.Id/create">Thêm Công việc mới</a>
                     </p>
-                    @*<form asp-action="Index" method="get" class="form-inline">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input type="text" class="form-control" name="q" style="height: 2.3rem!important;">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">Filter</button>
-                    </form>*@
                     <form asp-action="DeleteSelected" method="post">
-                        <input type="submit" class="btn btn-danger" value="Delete Selected" onclick="return confirm('Confirm deletion of the selected sections?') " />
+                        <input type="submit" class="btn btn-danger" value="Xóa đã chọn" onclick="return confirm('Xác nhận xóa các mục đã chọn?')" />
 
                         @section Scripts {
                             <script>
@@ -73,30 +67,30 @@
                                             <td>@Html.Raw(string.Join(", ", job.Skills.Select(skill => skill.Name)))</td>
                                             <td>@Html.DisplayFor(modelJob => job.Title.Name)</td>
                                             <td>
-                                                <a style="color: blue" href="/employer/job/@job.Id/update">Update</a> |
-                                                <a style="color: red" href="#" onclick="onDelete(@job.Id)">Delete</a>
+                                                <a style="color: blue" href="/employer/job/@job.Id/update">Cập nhật</a> |
+                                                <a style="color: red" href="#" onclick="onDelete(@job.Id)">Xóa</a>
                                             </td>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
                         </div>
-                        <!--Page list-->
+                        <!--Danh sách trang-->
                         <div class="text-center">
                             <ul class="pagination">
                                 @Html.PagedListPager((IPagedList)Model, page =>
-                                Url.Action("Index", new { page }),
-                                new PagedListRenderOptions
+                                         Url.Action("Index", new { page }),
+                                         new PagedListRenderOptions
                                 {
-                                Display = PagedListDisplayMode.IfNeeded,
-                                LiElementClasses = new string[] { "page-item" },
-                                UlElementClasses = new string[] { "pagination" },
-                                PageClasses = new string[] { "page-link" },
-                                MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                                LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                                LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                                LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                                LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                                    Display = PagedListDisplayMode.IfNeeded,
+                                    LiElementClasses = new string[] { "page-item" },
+                                    UlElementClasses = new string[] { "pagination" },
+                                    PageClasses = new string[] { "page-link" },
+                                    MaximumPageNumbersToDisplay = 7,
+                                    LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                                    LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                                    LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                                    LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
                                 })
                             </ul>
                         </div>
@@ -125,40 +119,40 @@
         align-items: center;
         margin-top: 20px;
     }
-    
-    .pagination li {
-        margin: 0 5px;
-    }
 
-    .pagination li a {
-        display: inline-block;
-        padding: 5px 10px;
-        border: 1px solid #ccc;
-        color: #333;
-        text-decoration: none;
-        border-radius: 5px;
-    }
+        .pagination li {
+            margin: 0 5px;
+        }
 
-    .pagination li.active a {
-        background-color: #333;
-        color: #fff;
-    }
+            .pagination li a {
+                display: inline-block;
+                padding: 5px 10px;
+                border: 1px solid #ccc;
+                color: #333;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+            .pagination li.active a {
+                background-color: #333;
+                color: #fff;
+            }
 </style>
 
 <script>
     function onDelete(id) {
         Swal.fire({
-            title: 'Delete this job?',
-            text: "Are you sure to delete this job?",
+            title: 'Xóa công việc này?',
+            text: "Bạn có chắc chắn muốn xóa công việc này?",
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Confirm'
+            confirmButtonText: 'Xác nhận'
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = '/employer/job/' + id + '/delete';
                 Swal.fire(
-                    'Delete!',
+                    'Đã xóa!',
                     '',
                     'success'
                 )

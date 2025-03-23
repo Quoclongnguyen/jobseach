@@ -37,7 +37,7 @@ namespace JobPortal.WebApp.Controllers
         {
             if (IsUsernameExists(model.Email))
             {
-                ModelState.AddModelError("Email", "This account has already existed.");
+                ModelState.AddModelError("Email", "Tài khoản này đã tồn tại.");
                 return View(model);
             }
             if (ModelState.IsValid)
@@ -103,7 +103,7 @@ namespace JobPortal.WebApp.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid account or password. Please try again !");
+                    ModelState.AddModelError(string.Empty, "Tài khoản hoặc mật khẩu không chính xác. Vui lòng thử lại!");
                     return View(model);
                 }
             }
@@ -139,7 +139,7 @@ namespace JobPortal.WebApp.Controllers
 
             if (model.NewPassword != model.ConfirmPassword)
             {
-                ModelState.AddModelError(string.Empty, "The password and confirmation password do not match.");
+                ModelState.AddModelError(string.Empty, "Mật khẩu và xác nhận mật khẩu không khớp.");
                 return View(model);
             }
 

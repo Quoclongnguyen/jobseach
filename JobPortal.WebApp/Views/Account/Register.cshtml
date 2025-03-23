@@ -5,18 +5,18 @@
 }
 
 <!-- /Logo -->
-<h4 class="mb-2">Adventure starts here 🚀</h4>
-<p class="mb-4">Make your app management easy and fun!</p>
+<h4 class="mb-2">Khám phá bắt đầu từ đây 🚀</h4>
+<p class="mb-4">Quản lý ứng dụng của bạn trở nên dễ dàng và thú vị!</p>
 
 <form id="registerForm" class="mb-3" action="#" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mb-3">
-        <label asp-for="Email" class="form-label"></label><span class="text-danger">*</span>
-        <input asp-for="Email" type="text" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter your email" />
+        <label asp-for="Email" class="form-label">Địa chỉ Email</label><span class="text-danger">*</span>
+        <input asp-for="Email" type="text" class="form-control" autocomplete="username" aria-required="true" placeholder="Nhập địa chỉ email của bạn" />
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="mb-3 form-password-toggle">
-        <label asp-for="Password" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="Password" class="form-label">Mật khẩu</label><span class="text-danger">*</span>
         <div class="input-group input-group-merge">
             <input asp-for="Password"
                    type="password"
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="mb-3 form-password-toggle">
-        <label asp-for="ConfirmPassword" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="ConfirmPassword" class="form-label">Xác nhận mật khẩu</label><span class="text-danger">*</span>
         <div class="input-group input-group-merge">
             <input asp-for="ConfirmPassword"
                    type="password"
@@ -40,41 +40,32 @@
         </div>
     </div>
     <div class="mb-3">
-        <label asp-for="FullName" class="form-label"></label><span class="text-danger">*</span>
-        <input asp-for="FullName" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Enter your name" />
+        <label asp-for="FullName" class="form-label">Họ và tên</label><span class="text-danger">*</span>
+        <input asp-for="FullName" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Nhập họ và tên" />
         <span asp-validation-for="FullName" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Age" class="form-label"></label><span class="text-danger">*</span>
-        <input asp-for="Age" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Enter your age" />
+        <label asp-for="Age" class="form-label">Tuổi</label><span class="text-danger">*</span>
+        <input asp-for="Age" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Nhập tuổi" />
         <span asp-validation-for="Age" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Phone" class="form-label"></label><span class="text-danger">*</span>
-        <input asp-for="Phone" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Enter your phone" />
+        <label asp-for="Phone" class="form-label">Số điện thoại</label><span class="text-danger">*</span>
+        <input asp-for="Phone" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Nhập số điện thoại" />
         <span asp-validation-for="Phone" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Address" class="form-label"></label><span class="text-danger">*</span>
-        <input asp-for="Address" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Enter your address" />
+        <label asp-for="Address" class="form-label">Địa chỉ</label><span class="text-danger">*</span>
+        <input asp-for="Address" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Nhập địa chỉ" />
         <span asp-validation-for="Address" class="text-danger"></span>
     </div>
-    @*<div class="mb-3">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-            <label class="form-check-label" for="terms-conditions">
-                I agree to
-                <a href="javascript:void(0);">privacy policy & terms</a>
-            </label>
-        </div>
-    </div>*@
-    <button id="registerSubmit" type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
+    <button id="registerSubmit" type="submit" class="btn btn-primary d-grid w-100">Đăng ký</button>
 </form>
 
 <p class="text-center">
-    <span>Already have an account?</span>
+    <span>Bạn đã có tài khoản?</span>
     <a href="/login">
-        <span>Sign in instead</span>
+        <span>Đăng nhập ngay</span>
     </a>
 </p>
 

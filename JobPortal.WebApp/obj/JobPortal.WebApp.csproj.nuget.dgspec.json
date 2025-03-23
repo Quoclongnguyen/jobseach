@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.WebApp\\JobPortal.WebApp.csproj": {}
+    "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.WebApp\\JobPortal.WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Common\\JobPortal.Common.csproj": {
+    "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Common\\JobPortal.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Common\\JobPortal.Common.csproj",
+        "projectUniqueName": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Common\\JobPortal.Common.csproj",
         "projectName": "JobPortal.Common",
-        "projectPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Common\\JobPortal.Common.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Common\\obj\\",
+        "projectPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Common\\JobPortal.Common.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Common\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,7 +38,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -60,26 +70,44 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Data\\JobPortal.Data.csproj": {
+    "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Data\\JobPortal.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Data\\JobPortal.Data.csproj",
+        "projectUniqueName": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Data\\JobPortal.Data.csproj",
         "projectName": "JobPortal.Data",
-        "projectPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Data\\JobPortal.Data.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Data\\obj\\",
+        "projectPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Data\\JobPortal.Data.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,8 +121,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Common\\JobPortal.Common.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Common\\JobPortal.Common.csproj"
+              "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Common\\JobPortal.Common.csproj": {
+                "projectPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Common\\JobPortal.Common.csproj"
               }
             }
           }
@@ -103,7 +131,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -157,26 +191,44 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.WebApp\\JobPortal.WebApp.csproj": {
+    "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.WebApp\\JobPortal.WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.WebApp\\JobPortal.WebApp.csproj",
+        "projectUniqueName": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.WebApp\\JobPortal.WebApp.csproj",
         "projectName": "JobPortal.WebApp",
-        "projectPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.WebApp\\JobPortal.WebApp.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.WebApp\\obj\\",
+        "projectPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.WebApp\\JobPortal.WebApp.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.WebApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -190,11 +242,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Common\\JobPortal.Common.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Common\\JobPortal.Common.csproj"
+              "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Common\\JobPortal.Common.csproj": {
+                "projectPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Common\\JobPortal.Common.csproj"
               },
-              "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Data\\JobPortal.Data.csproj": {
-                "projectPath": "C:\\Users\\ADMIN\\Downloads\\job-portal\\JobPortal.Data\\JobPortal.Data.csproj"
+              "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Data\\JobPortal.Data.csproj": {
+                "projectPath": "D:\\DO_AN_CHUYEN_NGHANH\\DACNN\\DACNN\\JobPortal.Data\\JobPortal.Data.csproj"
               }
             }
           }
@@ -203,7 +255,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net6.0": {
@@ -277,6 +335,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -285,7 +361,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

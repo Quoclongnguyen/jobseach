@@ -130,7 +130,7 @@ data-assets-path="~/assets/admin/assets"
                                 </g>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">home page</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Trang chủ</span>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -145,68 +145,68 @@ data-assets-path="~/assets/admin/assets"
                     <li class="menu-item active">
                         <a href="/employer/index/@user.Id" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Dashboard</div>
+                            <div data-i18n="Analytics">Bảng điều khiển</div>
                         </a>
                     </li>
 
                     <!--  Applicants -->
                     <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text"> Applicants </span>
+                        <span class="menu-header-text"> Ứng viên </span>
                     </li>
                     <!-- Applicant Setting-->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class='menu-icon tf-icons bx bx-user-circle'></i>
-                            <div data-i18n="Applicant Settings">Applicant Settings</div>
+                            <div data-i18n="Applicant Settings">Cài đặt ứng viên</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="/employer/apply/@user.Id/3" class="menu-link">
-                                    <div data-i18n="Applicant">All applicants</div>
+                                    <div data-i18n="Applicant">Tất cả ứng viên</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="/employer/apply/@user.Id/1" class="menu-link">
-                                    <div data-i18n="Applicant">Waiting applicants</div>
+                                    <div data-i18n="Applicant">Ứng viên đang chờ</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="/employer/apply/@user.Id/2" class="menu-link">
-                                    <div data-i18n="Applicant">Accepted applicants</div>
+                                    <div data-i18n="Applicant">Ứng viên đã chấp nhận</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="/employer/apply/@user.Id/0" class="menu-link">
-                                    <div data-i18n="Applicant">Denied applicants</div>
+                                    <div data-i18n="Applicant">Ứng viên bị từ chối</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
 
                     <!-- Contents -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Management</span></li>
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Quản lý</span></li>
                     <li class="menu-item">
                         <a href="/employer/job/@user.Id" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Jobs</div>
+                            <div data-i18n="Tables">Công việc</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="/employer/blog/@user.Id" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Blogs</div>
+                            <div data-i18n="Tables">Bài viết</div>
                         </a>
                     </li>
 
                     <!-- Misc -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Khác</span></li>
                     <li class="menu-item">
                         <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
                            target="_blank"
                            class="menu-link">
                             <i class="menu-icon tf-icons bx bx-support"></i>
-                            <div data-i18n="Support">Support</div>
+                            <div data-i18n="Support">Hỗ trợ</div>
                         </a>
                     </li>
                     <li class="menu-item">
@@ -214,7 +214,7 @@ data-assets-path="~/assets/admin/assets"
                            target="_blank"
                            class="menu-link">
                             <i class="menu-icon tf-icons bx bx-file"></i>
-                            <div data-i18n="Documentation">Documentation</div>
+                            <div data-i18n="Documentation">Tài liệu</div>
                         </a>
                     </li>
                 </ul>
@@ -222,7 +222,7 @@ data-assets-path="~/assets/admin/assets"
             <!-- / Menu -->
             <!-- Layout container -->
             <div class="layout-page">
-                
+
                 <!--NavBar-->
                 <partial name="_NavBarPartial.cshtml" />
 
@@ -232,7 +232,6 @@ data-assets-path="~/assets/admin/assets"
                     <!-- Start Render Body -->
                     @RenderBody()
                     <!-- End Render Body -->
-
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
@@ -241,20 +240,20 @@ data-assets-path="~/assets/admin/assets"
                                 <script>
                                     document.write(new Date().getFullYear());
                                 </script>
-                                , made with ❤️ by
+                                , được tạo với ❤️ bởi
                                 <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
                             </div>
                             <div>
-                                <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
+                                <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">Giấy phép</a>
+                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">Thêm chủ đề</a>
 
                                 <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
                                    target="_blank"
-                                   class="footer-link me-4">Documentation</a>
+                                   class="footer-link me-4">Tài liệu</a>
 
                                 <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
                                    target="_blank"
-                                   class="footer-link me-4">Support</a>
+                                   class="footer-link me-4">Hỗ trợ</a>
                             </div>
                         </div>
                     </footer>
@@ -271,6 +270,7 @@ data-assets-path="~/assets/admin/assets"
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
     </div>
+
     <!-- / Layout wrapper -->
     @*<div class="buy-now">
     <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"

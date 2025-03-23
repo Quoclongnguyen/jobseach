@@ -3,7 +3,7 @@
 @using X.PagedList.Mvc.Core;
 @using X.PagedList.Web.Common;
 @{
-    ViewData["Title"] = "All User";
+    ViewData["Title"] = "Danh sách người dùng";
 }
 
 <div class="content-wrapper">
@@ -12,24 +12,24 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <h1 class="text-center">List User</h1>
+                        <h1 class="text-center">Danh sách người dùng</h1>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>
-                                        Employer Name
+                                        Tên người dùng
                                     </th>
                                     <th>
-                                        Address
+                                        Địa chỉ
                                     </th>
                                     <th>
-                                        Phone
+                                        Số điện thoại
                                     </th>
                                     <th>
                                         Email
                                     </th>
                                     <th>
-                                        Create date
+                                        Ngày tạo
                                     </th>
                                 </tr>
                             </thead>
@@ -37,7 +37,6 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-
                                         <td>
                                             @Html.DisplayFor(modelItem => item.FullName)
                                         </td>
@@ -53,28 +52,27 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.CreateDate)
                                         </td>
-
                                     </tr>
                                 }
                             </tbody>
                         </table>
                     </div>
-                    <!--Page list-->
+                    <!-- Danh sách phân trang -->
                     <div class="text-center">
                         <ul class="pagination">
                             @Html.PagedListPager((IPagedList)Model, page =>
-                            Url.Action("ListUser", new { page }),
-                            new PagedListRenderOptions
+                                     Url.Action("ListUser", new { page }),
+                                     new PagedListRenderOptions
                             {
-                            Display = PagedListDisplayMode.IfNeeded,
-                            LiElementClasses = new string[] { "page-item" },
-                            UlElementClasses = new string[] { "pagination" },
-                            PageClasses = new string[] { "page-link" },
-                            MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                            LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                            LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                            LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                            LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                                Display = PagedListDisplayMode.IfNeeded,
+                                LiElementClasses = new string[] { "page-item" },
+                                UlElementClasses = new string[] { "pagination" },
+                                PageClasses = new string[] { "page-link" },
+                                MaximumPageNumbersToDisplay = 7, // Số trang hiển thị tối đa
+                                LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                                LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                                LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                                LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
                             })
                         </ul>
                     </div>

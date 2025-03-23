@@ -73,39 +73,38 @@
 	<!-- Start RenderBody-->
 		@RenderBody()
 	<!-- Start RenderBody-->
-
-	<!-- Start footer Area -->
+	<!-- Bắt đầu Khu vực Footer -->
 	<footer class="footer-area section-gap">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3  col-md-12">
+				<div class="col-lg-3 col-md-12">
 					<div class="single-footer-widget">
-						<h6>Top Products</h6>
+						<h6>Sản phẩm hàng đầu</h6>
 						<ul class="footer-nav">
-							<li><a href="#">Managed Website</a></li>
-							<li><a href="#">Manage Reputation</a></li>
-							<li><a href="#">Power Tools</a></li>
-							<li><a href="#">Marketing Service</a></li>
+							<li><a href="#">Quản lý Website</a></li>
+							<li><a href="#">Quản lý Danh tiếng</a></li>
+							<li><a href="#">Công cụ mạnh mẽ</a></li>
+							<li><a href="#">Dịch vụ Marketing</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-6  col-md-12">
+				<div class="col-lg-6 col-md-12">
 					<div class="single-footer-widget newsletter">
-						<h6>Newsletter</h6>
-						<p>You can trust us. we only send promo offers, not a single spam.</p>
+						<h6>Bản tin</h6>
+						<p>Bạn có thể tin tưởng chúng tôi. Chúng tôi chỉ gửi các ưu đãi khuyến mãi, không gửi thư rác.</p>
 						<div id="mc_embed_signup">
 							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
 
 								<div class="form-group row" style="width: 100%">
 									<div class="col-lg-8 col-md-12">
-										<input name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+										<input name="EMAIL" placeholder="Nhập Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập Email '" required="" type="email">
 										<div style="position: absolute; left: -5000px;">
 											<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
 										</div>
 									</div>
 
 									<div class="col-lg-4 col-md-12">
-										<button class="nw-btn primary-btn">Subscribe<span class="lnr lnr-arrow-right"></span></button>
+										<button class="nw-btn primary-btn">Đăng ký<span class="lnr lnr-arrow-right"></span></button>
 									</div>
 								</div>
 								<div class="info"></div>
@@ -113,9 +112,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3  col-md-12">
+				<div class="col-lg-3 col-md-12">
 					<div class="single-footer-widget mail-chimp">
-						<h6 class="mb-20">Instragram Feed</h6>
+						<h6 class="mb-20">Hình ảnh trên Instagram</h6>
 						<ul class="instafeed d-flex flex-wrap">
 							<li><img src="~/assets/user/img/i1.jpg" alt=""></li>
 							<li><img src="~/assets/user/img/i2.jpg" alt=""></li>
@@ -132,9 +131,9 @@
 
 			<div class="row footer-bottom d-flex justify-content-between">
 				<p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					<!-- Liên kết đến Colorlib không được xóa. Template được cấp phép dưới CC BY 3.0. -->
+					Bản quyền &copy;<script>document.write(new Date().getFullYear());</script> Tất cả các quyền được bảo lưu | Template này được tạo với <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a href="https://colorlib.com" target="_blank">Colorlib</a>
+					<!-- Liên kết đến Colorlib không được xóa. Template được cấp phép dưới CC BY 3.0. -->
 				</p>
 				<div class="col-lg-4 col-sm-12 footer-social">
 					<a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
@@ -145,15 +144,14 @@
 			</div>
 		</div>
 	</footer>
-	<!-- End footer Area -->
-
-	<!-- Register -->
+	<!-- Kết thúc Khu vực Footer -->
+	<!-- Đăng ký -->
 	@if (isSignedIn)
 	{
 		@if (@account.Status == null)
 		{
 			<div class="buy-now">
-				<button href="#" data-toggle="modal" data-target="#viewRegister" class="btn btn-danger btn-buy-now">Register to Employer</button>
+				<button href="#" data-toggle="modal" data-target="#viewRegister" class="btn btn-danger btn-buy-now">Đăng ký làm Nhà tuyển dụng</button>
 			</div>
 
 			<!-- Modal -->
@@ -162,7 +160,7 @@
 					<div class="modal-content">
 						<div class="modal-header bg-primary">
 							<h5 style="color: white" class="modal-title" id="exampleModalLabel">
-								Become an employer to recruit great IT talents with Job Portal
+								Trở thành nhà tuyển dụng để chiêu mộ những nhân tài IT xuất sắc với Job Portal
 							</h5>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
@@ -172,23 +170,23 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
-										<img style="width: 100%; max-width: 400px; height: auto; display: block; margin: 0 auto 20px;" src="https://localhost:7211/images/default/ads.jpg" alt="ads image">
-										<p>By registering as an employer, you gain access to numerous benefits:</p>
+										<img style="width: 100%; max-width: 400px; height: auto; display: block; margin: 0 auto 20px;" src="https://localhost:7211/images/default/ads.jpg" alt="ảnh quảng cáo">
+										<p>Khi đăng ký làm nhà tuyển dụng, bạn sẽ nhận được rất nhiều lợi ích:</p>
 										<ul class="unordered-list">
-											<li>Ability to post job listings and reach a wider audience</li>
-											<li>Direct communication with potential candidates</li>
-											<li>Access to advanced search filters and candidate matching</li>
-											<li>Manage and track applications efficiently</li>
-											<li>Build your company's brand and reputation</li>
+											<li>Có thể đăng tin tuyển dụng và tiếp cận đối tượng rộng hơn</li>
+											<li>Giao tiếp trực tiếp với ứng viên tiềm năng</li>
+											<li>Truy cập bộ lọc tìm kiếm nâng cao và tính năng gợi ý ứng viên</li>
+											<li>Quản lý và theo dõi hồ sơ ứng tuyển hiệu quả</li>
+											<li>Xây dựng thương hiệu và danh tiếng cho công ty</li>
 										</ul>
-										<p style="text-align: center">Don't miss out on these advantages. Register now!</p>
+										<p style="text-align: center">Đừng bỏ lỡ những lợi ích này. Đăng ký ngay!</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="modal-footer">
-							<a href="/register-employer/register/@account.Id" class="btn btn-primary">Register now</a>
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<a href="/register-employer/register/@account.Id" class="btn btn-primary">Đăng ký ngay</a>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
 						</div>
 					</div>
 				</div>

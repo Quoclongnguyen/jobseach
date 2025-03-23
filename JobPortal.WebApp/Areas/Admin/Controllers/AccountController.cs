@@ -43,22 +43,22 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
                             false);
                 if (result.Succeeded)
                 {
-                    //get email from login site and check 
+                    // Lấy email từ trang đăng nhập và kiểm tra
                     var user = await userManager.FindByEmailAsync(model.Email);
-                    
+
                     if (user == null || !await userManager.CheckPasswordAsync(user, model.Password))
                     {
-                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        ModelState.AddModelError(string.Empty, "Đăng nhập không thành công.");
                         return View(model);
                     }
 
-                    //get role by user
+                    // Lấy vai trò của người dùng
                     var roles = await userManager.GetRolesAsync(user);
-                    // check role
+                    // Kiểm tra vai trò
                     if (!roles.Contains("Admin"))
                     {
                         await signInManager.SignOutAsync();
-                        ModelState.AddModelError(string.Empty, "This page is only for admin account.");
+                        ModelState.AddModelError(string.Empty, "Trang này chỉ dành cho tài khoản quản trị viên.");
                     }
                     else if (!string.IsNullOrEmpty(returnUrl))
                     {
@@ -71,7 +71,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid account or password. Please try again !");
+                    ModelState.AddModelError(string.Empty, "Tài khoản hoặc mật khẩu không hợp lệ. Vui lòng thử lại!");
                     return View(model);
                 }
             }

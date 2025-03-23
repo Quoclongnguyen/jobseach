@@ -82,3 +82,29 @@ C:\Users\Admin\Desktop\New folder (4)\job-portal\JobPortal.Common\obj\Debug\net6
 C:\Users\Admin\Desktop\New folder (4)\job-portal\JobPortal.Common\obj\Debug\net6.0\refint\JobPortal.Common.dll
 C:\Users\Admin\Desktop\New folder (4)\job-portal\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.pdb
 C:\Users\Admin\Desktop\New folder (4)\job-portal\JobPortal.Common\obj\Debug\net6.0\ref\JobPortal.Common.dll
+D:\DACNN\JobPortal.Common\bin\Debug\net6.0\JobPortal.Common.deps.json
+D:\DACNN\JobPortal.Common\bin\Debug\net6.0\JobPortal.Common.dll
+D:\DACNN\JobPortal.Common\bin\Debug\net6.0\JobPortal.Common.pdb
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.csproj.AssemblyReference.cache
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.AssemblyInfoInputs.cache
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.AssemblyInfo.cs
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.csproj.CoreCompileInputs.cache
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.sourcelink.json
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.dll
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\refint\JobPortal.Common.dll
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.pdb
+D:\DACNN\JobPortal.Common\obj\Debug\net6.0\ref\JobPortal.Common.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\bin\Debug\net6.0\JobPortal.Common.deps.json
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\bin\Debug\net6.0\JobPortal.Common.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\bin\Debug\net6.0\JobPortal.Common.pdb
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.csproj.AssemblyReference.cache
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.AssemblyInfoInputs.cache
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.AssemblyInfo.cs
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.csproj.CoreCompileInputs.cache
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.sourcelink.json
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\refint\JobPortal.Common.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\JobPortal.Common.pdb
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Common\obj\Debug\net6.0\ref\JobPortal.Common.dll

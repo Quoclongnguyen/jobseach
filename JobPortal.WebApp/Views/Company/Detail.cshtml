@@ -9,22 +9,22 @@
     Layout = "_Layout";
 }
 
-<!-- Start banner Area -->
+<!-- Khu vực banner bắt đầu -->
 <section class="banner-area relative" id="home">
-	<div class="overlay overlay-bg"></div>
-	<div class="container">
-		<div class="row d-flex align-items-center justify-content-center">
-			<div class="about-content col-lg-12">
-				<h1 class="text-white">
-					@Model.FullName
-				</h1>
-				<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Company overview</a></p>
-			</div>
-		</div>
-	</div>
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    @Model.FullName
+                </h1>
+                <p class="text-white link-nav"><a href="/">Trang Chủ </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Tổng quan công ty</a></p>
+            </div>
+        </div>
+    </div>
 </section>
-<!-- End banner Area -->
-<!-- Start blog-posts Area -->
+<!-- Khu vực banner kết thúc -->
+<!-- Khu vực bài viết blog bắt đầu -->
 <section class="blog-posts-area section-gap">
     <div class="container">
         <div class="row">
@@ -36,48 +36,46 @@
                     <ul class="cat-list">
                         @if (ViewBag.CountJob == 1)
                         {
-                            <li class="col-xs-12 col-4"><a href="/job?slug=@Model.Slug">@ViewBag.CountJob job opening</a></li>
-
+                            <li class="col-xs-12 col-4"><a href="/job?slug=@Model.Slug">@ViewBag.CountJob cơ hội việc làm</a></li>
                         }
                         else if (ViewBag.CountJob > 1)
                         {
-                            <li class="col-xs-12 col-4"><a href="/job?slug=@Model.Slug">@ViewBag.CountJob jobs opening</a></li>
+                            <li class="col-xs-12 col-4"><a href="/job?slug=@Model.Slug">@ViewBag.CountJob cơ hội việc làm</a></li>
                         }
                     </ul>
                     <ul class="tags">
-                        <li><a target="_blank" href="https://@Model.WebsiteURL/">@Model.WebsiteURL</a></li> - Established: @Model.CreateDate -
+                        <li><a target="_blank" href="https://@Model.WebsiteURL/">@Model.WebsiteURL</a></li> - Thành lập: @Model.CreateDate -
                         <img width="30" height="20" src="https://localhost:7211/images/countries/@Model.Country.Flag" alt="flag"> @Model.Country.Name
                     </ul>
                     <div class="content-wrap">
-                        <h6>Company overview:</h6>
+                        <h6>Tổng quan công ty:</h6>
                         <blockquote class="generic-blockquote">
                             <p>@Html.Raw(Model.Description)</p>
                             <p>@Html.Raw(Model.Content)</p>
                         </blockquote>
 
-                        <h6>Location:</h6>
+                        <h6>Vị trí:</h6>
                         <p>@Html.Raw(Model.Location)</p>
 
-                        <h6>Company size:</h6>
+                        <h6>Quy mô công ty:</h6>
                         <p>@Html.Raw(Model.CompanySize)</p>
 
-                        <h6>Working days:</h6>
+                        <h6>Ngày làm việc:</h6>
                         <p>@Html.Raw(Model.WorkingDays)</p>
 
-                        <h6>Province:</h6>
+                        <h6>Tỉnh/Thành phố:</h6>
                         <p>@Html.Raw(Model.Province.Name)</p>
 
-                        <h6>Contact:</h6>
+                        <h6>Liên hệ:</h6>
                         <p>@Html.Raw(Model.Contact)</p>
-                        
                     </div>
                     <hr />
                     <div class="bottom-meta">
                         <div class="user-details row align-items-center">
                             <div class="comment-wrap col-lg-6 col-sm-6">
                                 @*<ul>
-                                    <li><a href="#"><span class="lnr lnr-heart"></span>	4 likes</a></li>
-                                    <li><a href="#"><span class="lnr lnr-bubble"></span> 06 Comments</a></li>
+                                <li><a href="#"><span class="lnr lnr-heart"></span>	4 lượt thích</a></li>
+                                <li><a href="#"><span class="lnr lnr-bubble"></span> 06 Bình luận</a></li>
                                 </ul>*@
                             </div>
                             <div class="social-wrap col-lg-6">
@@ -91,7 +89,6 @@
                             </div>
                         </div>
                     </div>
-
                    @* <!-- Start nav Area -->
                     <section class="nav-area pt-50 pb-100">
                         <div class="container">

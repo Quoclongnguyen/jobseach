@@ -1,8 +1,10 @@
-﻿using JobPortal.Data.Entities;
+﻿using JobPortal.Data.DataContext;
+using JobPortal.Data.Entities;
 using JobPortal.Data.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobPortal.WebApp.Areas.Admin.Controllers
 {
@@ -13,17 +15,19 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
     {
         private readonly RoleManager<AppRole> roleManager;
         private readonly UserManager<AppUser> userManager;
+        private readonly DataDbContext _context;
 
-        public AppUserController(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager)
+        public AppUserController(RoleManager<AppRole> roleManager, DataDbContext context, UserManager<AppUser> userManager)
         {
             this.roleManager = roleManager;
             this.userManager = userManager;
+            this._context = context;
         }
 
         [Route("")]
         public IActionResult Index()
         {
-            //All users but admin
+            // Lấy danh sách tất cả người dùng (trừ admin)
             var users = userManager.Users.Where(u => u.Status != -1).ToList();
             var userRoles = new List<Dictionary<string, string>>();
 
@@ -50,7 +54,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
             return View(userRoles);
         }
 
-        // Phân quyền Users
+        // Phân quyền người dùng
         [Route("manage-user-roles/{userId}")]
         [HttpGet]
         public async Task<IActionResult> ManageUserRoles(Guid userId)
@@ -61,7 +65,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
 
             if (user == null)
             {
-                ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
+                ViewBag.ErrorMessage = $"Không tìm thấy người dùng với ID = {userId}";
                 return View("NotFound");
             }
 
@@ -98,28 +102,53 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
 
             if (user == null)
             {
-                ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
+                ViewBag.ErrorMessage = $"Không tìm thấy người dùng với ID = {userId}";
                 return View("NotFound");
             }
 
+            // Lấy danh sách các vai trò của người dùng hiện tại
             var roles = await userManager.GetRolesAsync(user);
+
+            // Xóa các vai trò hiện tại của người dùng
             var result = await userManager.RemoveFromRolesAsync(user, roles);
-
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("", "Cannot remove user existing roles");
+                ModelState.AddModelError("", "Không thể xóa các vai trò hiện tại của người dùng");
                 return View(model);
             }
 
-            result = await userManager.AddToRolesAsync(user,
-                model.Where(x => x.IsSelected).Select(y => y.RoleName));
-
+            // Thêm các vai trò mới cho người dùng
+            result = await userManager.AddToRolesAsync(user, model.Where(x => x.IsSelected).Select(y => y.RoleName));
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("", "Cannot add selected roles to user");
+                ModelState.AddModelError("", "Không thể thêm các vai trò đã chọn cho người dùng");
                 return View(model);
             }
 
+            // Lấy danh sách các vai trò được chọn
+            var selectedRoles = model.Where(x => x.IsSelected).Select(y => y.RoleName).ToList();
+
+            // Cập nhật trạng thái người dùng dựa trên vai trò được chọn
+            if (selectedRoles.Contains("Admin"))
+            {
+                user.Status = -1; // Trạng thái = -1 nếu có vai trò "Admin"
+            }
+            else if (selectedRoles.Contains("Employer"))
+            {
+                user.Status = 2; // Trạng thái = 2 nếu có vai trò "Confirmed"
+            }
+            else if (selectedRoles.Contains("User"))
+            {
+                user.Status = 1; // Trạng thái = 1 nếu có vai trò "Waiting"
+            }
+
+            // Cập nhật người dùng trong cơ sở dữ liệu
+            _context.AppUsers.Update(user);
+
+            // Lưu các thay đổi vào cơ sở dữ liệu
+            await _context.SaveChangesAsync();
+
+            // Sau khi phân quyền thành công, chuyển hướng về trang Index
             return RedirectToAction("Index");
         }
 

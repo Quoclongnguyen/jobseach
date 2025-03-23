@@ -5,63 +5,83 @@ namespace JobPortal.Data.Entities
     public class CV
     {
         public int Id { get; set; }
-        [Display(Name = "Certificate")]
-        [Required(ErrorMessage = "Please enter your certificate")]
-        [StringLength(100, ErrorMessage = "Your certificate cannot be more than 100 characters.")]
+
+        [Display(Name = "Chứng chỉ")]
+        [Required(ErrorMessage = "Vui lòng nhập chứng chỉ của bạn")]
+        [StringLength(100, ErrorMessage = "Chứng chỉ không được dài quá 100 ký tự.")]
         public string Certificate { get; set; }
-        [Display(Name = "Major")]
-        [Required(ErrorMessage = "Please enter your major")]
-        [StringLength(100, ErrorMessage = "Your major cannot be more than 50 characters.")]
+
+        [Display(Name = "Chuyên ngành")]
+        [Required(ErrorMessage = "Vui lòng nhập chuyên ngành của bạn")]
+        [StringLength(100, ErrorMessage = "Chuyên ngành không được dài quá 50 ký tự.")]
         public string Major { get; set; }
+
         public DateTime ApplyDate { get; set; }
-        [Display(Name = "Graduated at")]
-        [Required(ErrorMessage = "Please enter where you graduated")]
-        [StringLength(100, ErrorMessage = "Your place cannot be more than 50 characters.")]
+
+        [Display(Name = "Tốt nghiệp tại")]
+        [Required(ErrorMessage = "Vui lòng nhập nơi bạn đã tốt nghiệp")]
+        [StringLength(100, ErrorMessage = "Nơi tốt nghiệp không được dài quá 50 ký tự.")]
         public string GraduatedAt { get; set; }
-        [Display(Name = "Your GPA")]
-        [Required(ErrorMessage = "Please enter your GPA")]
-        [Range(0, 4, ErrorMessage = "Please enter valid GPA (0-4).")]
+
+        [Display(Name = "Điểm GPA")]
+        [Required(ErrorMessage = "Vui lòng nhập điểm GPA của bạn")]
+        [Range(0, 4, ErrorMessage = "Vui lòng nhập điểm GPA hợp lệ (0-4).")]
         public float GPA { get; set; }
+            
         public Job? Job { get; set; }
-        [Display(Name = "Job")]
+
+        [Display(Name = "Công việc")]
         public int JobId { get; set; }
-        [Display(Name = "Description")]
-        [Required(ErrorMessage = "Please enter your description")]
+
+        [Display(Name = "Mô tả")]
+        [Required(ErrorMessage = "Vui lòng nhập mô tả của bạn")]
         public string Description { get; set; }
-        [Display(Name = "Introduce")]
-        [Required(ErrorMessage = "Please enter your introduce")]
+
+        [Display(Name = "Giới thiệu")]
+        [Required(ErrorMessage = "Vui lòng nhập phần giới thiệu của bạn")]
         public string Introduce { get; set; }
+
         public AppUser? AppUser { get; set; }
         public Guid AppUserId { set; get; }
-        public int Status { get; set; } // = 0 denied // = 1 waiting // = 2 accepted // = 3 already feedback // = -1 cancel
-        [Display(Name = "Your CV image")]
-        public string? UrlImage { get; set; } //CV image
-        [Display(Name = "Your phone")]
-        [Required(ErrorMessage = "Please enter your phone")]
-        [StringLength(20, ErrorMessage = "Please enter valid phonenumber.", MinimumLength = 9)]
+
+        public int Status { get; set; } // = 0 từ chối // = 1 đang chờ // = 2 chấp nhận // = 3 đã phản hồi // = -1 hủy
+
+        [Display(Name = "Ảnh CV của bạn")]
+        public string? UrlImage { get; set; } // Ảnh CV
+
+        [Display(Name = "Số điện thoại của bạn")]
+        [Required(ErrorMessage = "Vui lòng nhập số điện thoại của bạn")]
+        [StringLength(20, ErrorMessage = "Vui lòng nhập số điện thoại hợp lệ.", MinimumLength = 9)]
         public string Phone { get; set; }
-        [Display(Name = "Your email")]
-        [Required(ErrorMessage = "Please enter your email")]
-        [StringLength(50, ErrorMessage = "Your email cannot be more than 50 characters.")]
+
+        [Display(Name = "Email của bạn")]
+        [Required(ErrorMessage = "Vui lòng nhập email của bạn")]
+        [StringLength(50, ErrorMessage = "Email không được dài quá 50 ký tự.")]
         public string Email { get; set; }
 
-        //Feedback
-        [Display(Name = "Address")]
+        // Phản hồi từ nhà tuyển dụng
+        [Display(Name = "Địa chỉ")]
         public string? EmployerAddress { get; set; }
-        [Display(Name = "Your phone")]
-        [StringLength(20, ErrorMessage = "Please enter valid phonenumber.", MinimumLength = 9)]
+
+        [Display(Name = "Số điện thoại nhà tuyển dụng")]
+        [StringLength(20, ErrorMessage = "Vui lòng nhập số điện thoại hợp lệ.", MinimumLength = 9)]
         public string? EmployerPhone { get; set; }
-        [Display(Name = "Comment")]
+
+        [Display(Name = "Nhận xét")]
         public string? Comment { get; set; }
-        [Display(Name = "Rating")]
-        [Range(0, 10, ErrorMessage = "Please enter valid rating (0-10).")]
+
+        [Display(Name = "Đánh giá")]
+        [Range(0, 10, ErrorMessage = "Vui lòng nhập đánh giá hợp lệ (0-10).")]
         public byte? EmployerRating { get; set; }
+
         public DateTime? CommentOn { get; set; }
-        [Display(Name = "City")]
-        [StringLength(30, ErrorMessage = "The city cannot be more than 30 characters.")]
+
+        [Display(Name = "Thành phố")]
+        [StringLength(30, ErrorMessage = "Thành phố không được dài quá 30 ký tự.")]
         public string? City { get; set; }
-        [Display(Name = "Email")]
-        [StringLength(50, ErrorMessage = "The email cannot be more than 50 characters.")]
+
+        [Display(Name = "Email nhà tuyển dụng")]
+        [StringLength(50, ErrorMessage = "Email không được dài quá 50 ký tự.")]
         public string? EmployerEmail { get; set; }
     }
 }

@@ -6,13 +6,13 @@
 <div class="content-wrapper">
     <div class="row">
         <div class="col-lg-12 grid-margin stretch-card">
-            <h1 style="text-align:center">Table of Category</h1>
+            <h1 style="text-align:center">Bảng danh mục</h1>
             <div class="card">
                 <div class="card-body">
                     <form asp-action="DeleteSelected" method="post">
                         <div class="d-flex justify-content-between mb-3">
-                            <a asp-action="Create" class="btn btn-primary">Create New</a>
-                            <input type="submit" class="btn btn-danger" value="Delete Selected" onclick="return confirm('Confirm deletion of the selected sections?')" />
+                            <a asp-action="Create" class="btn btn-primary">Thêm mới</a>
+                            <input type="submit" class="btn btn-danger" value="Xóa đã chọn" onclick="return confirm('Xác nhận xóa các mục đã chọn?')" />
                         </div>
                         @section Scripts {
                             <script>
@@ -32,14 +32,13 @@
                                 <thead>
                                     <tr>
                                         <th>
-                                            @*<i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@Html.DisplayNameFor(model => model.Id)</strong>*@
                                             <input type="checkbox" id="checkall" />
                                         </th>
                                         <th>
                                             @Html.DisplayNameFor(model => model.Name)
                                         </th>
                                         <th>
-                                            Actions
+                                            Hành động
                                         </th>
                                     </tr>
                                 </thead>
@@ -48,13 +47,12 @@
                                     {
                                         <tr>
                                             <td>
-                                                @*<i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@Html.DisplayFor(modelItem => item.Id)</strong>*@
                                                 <input type="checkbox" name="listDelete" value="@category.Id" />
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => category.Name)
                                             </td>
-                                           
+
                                             <td>
                                                 <div class="dropdown">
                                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -62,10 +60,10 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item update-button" href="/admin/category/update/@category.Id">
-                                                            <i class="bx bx-edit me-1"></i> Update
+                                                            <i class="bx bx-edit me-1"></i> Chỉnh sửa
                                                         </a>
                                                         <button class="dropdown-item delete-button" type="button" onclick="deleteItem(@category.Id)">
-                                                            <i class="bx bx-trash me-1"></i> Delete
+                                                            <i class="bx bx-trash me-1"></i> Xóa
                                                         </button>
                                                     </div>
                                                 </div>
@@ -75,22 +73,22 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!--Page list-->
+                        <!--Phân trang-->
                         <div class="text-center">
                             <ul class="pagination">
                                 @Html.PagedListPager((IPagedList)Model, page =>
-                                Url.Action("Index", new { page }),
-                                new PagedListRenderOptions
+                                         Url.Action("Index", new { page }),
+                                         new PagedListRenderOptions
                                 {
-                                Display = PagedListDisplayMode.IfNeeded,
-                                LiElementClasses = new string[] { "page-item" },
-                                UlElementClasses = new string[] { "pagination" },
-                                PageClasses = new string[] { "page-link" },
-                                MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                                LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                                LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                                LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                                LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                                    Display = PagedListDisplayMode.IfNeeded,
+                                    LiElementClasses = new string[] { "page-item" },
+                                    UlElementClasses = new string[] { "pagination" },
+                                    PageClasses = new string[] { "page-link" },
+                                    MaximumPageNumbersToDisplay = 7, // Số lượng trang hiển thị tối đa
+                                    LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                                    LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                                    LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                                    LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
                                 })
                             </ul>
                         </div>
@@ -166,17 +164,17 @@
 <script>
     function deleteItem(id) {
         Swal.fire({
-            title: 'Delete this category?',
-            text: "Are you sure to delete the category?",
+            title: 'Xóa danh mục này?',
+            text: "Bạn có chắc chắn muốn xóa danh mục này không?",
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Delete!'
+            confirmButtonText: 'Xóa!'
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = '/admin/category/delete/' + id;
                 Swal.fire(
-                    'Deleted!',
+                    'Đã xóa!',
                     '',
                     'success'
                 );

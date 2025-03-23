@@ -26,10 +26,10 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [Route("")]
         public async Task<IActionResult> Index(int? page)
         {
-            int pageSize = 5; //number of provinces per page
+            int pageSize = 5; // Số lượng tỉnh hiển thị trên mỗi trang
 
-            var province = await _context.Provinces.OrderBy(i => i.Id).ToListAsync();
-            return View(province.ToPagedList(page ?? 1, pageSize));
+            var provinces = await _context.Provinces.OrderBy(i => i.Id).ToListAsync();
+            return View(provinces.ToPagedList(page ?? 1, pageSize));
         }
 
         [Route("create")]
@@ -48,7 +48,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
                 Province province = new Province()
                 {
                     Name = model.Name,
-                    Slug = TextHelper.ToUnsignString(model.Name).ToLower()
+                    Slug = TextHelper.ToUnsignString(model.Name).ToLower() // Chuyển đổi tên thành slug
                 };
                 _context.Provinces.Add(province);
                 await _context.SaveChangesAsync();
@@ -60,6 +60,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [Route("update/{id}")]
         public IActionResult Update(int id)
         {
+            // Lấy tỉnh theo ID
             var province = _context.Provinces.Where(u => u.Id == id).First();
             return View(province);
         }
@@ -69,6 +70,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, UpdateProvinceViewModel model)
         {
+            // Cập nhật thông tin tỉnh
             Province province = _context.Provinces.Where(u => u.Id == id).First();
             province.Name = model.Name;
             province.Slug = TextHelper.ToUnsignString(province.Name).ToLower();
@@ -82,6 +84,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         {
             try
             {
+                // Xóa tỉnh theo ID
                 Province province = _context.Provinces.Where(d => d.Id == id).First();
                 _context.Provinces.Remove(province);
                 _context.SaveChanges();
@@ -96,6 +99,7 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [HttpPost("delete-selected")]
         public async Task<IActionResult> DeleteSelected(int[] listDelete)
         {
+            // Xóa danh sách các tỉnh được chọn
             foreach (int id in listDelete)
             {
                 var province = await _context.Provinces.FindAsync(id);

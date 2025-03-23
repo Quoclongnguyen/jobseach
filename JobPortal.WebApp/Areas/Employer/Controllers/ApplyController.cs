@@ -21,50 +21,50 @@ namespace JobPortal.WebApp.Areas.Employer.Controllers
         [Route("{id}/{status}")]
         public async Task<IActionResult> Index(Guid id, int status, int? page)
         {
-            int pageSize = 10; //number of CVs per page
+            int pageSize = 10; // số lượng CV mỗi trang
 
             var CV = (from cv in _context.CVs
-                        orderby cv.Id descending
-                        select new CVsViewModel()
-                        {
-                            CVId = cv.Id,
-                            Certificate = cv.Certificate,
-                            Major = cv.Major,
-                            ApplyDate = cv.ApplyDate,
-                            GraduatedAt = cv.GraduatedAt,
-                            GPA = cv.GPA,
-                            Description = cv.Description,
-                            Introduce = cv.Introduce,
-                            UserId = cv.AppUserId,
-                            CVStatus = cv.Status,
-                            JobName = cv.Job.Name,
-                            EmployerLogo = cv.Job.AppUser.UrlAvatar,
-                            UserName = cv.AppUser.FullName,
-                            CVImage = cv.UrlImage,
-                            CVPhone = cv.Phone,
-                            CVEmail = cv.Email,
-							EmployerId = cv.Job.AppUser.Id,
-                            EmployerAddress = cv.EmployerAddress,
-                            EmployerCity = cv.City,
-                            EmployerComment = cv.Comment,
-                            EmployerEmail = cv.EmployerEmail,
-                            EmployerPhone = cv.EmployerPhone,
-                            EmployerRating = cv.EmployerRating,
-                            CommentOn = cv.CommentOn
-                        }).Where(cv => cv.EmployerId == id);
+                      orderby cv.Id descending
+                      select new CVsViewModel()
+                      {
+                          CVId = cv.Id,
+                          Certificate = cv.Certificate,
+                          Major = cv.Major,
+                          ApplyDate = cv.ApplyDate,
+                          GraduatedAt = cv.GraduatedAt,
+                          GPA = cv.GPA,
+                          Description = cv.Description,
+                          Introduce = cv.Introduce,
+                          UserId = cv.AppUserId,
+                          CVStatus = cv.Status,
+                          JobName = cv.Job.Name,
+                          EmployerLogo = cv.Job.AppUser.UrlAvatar,
+                          UserName = cv.AppUser.FullName,
+                          CVImage = cv.UrlImage,
+                          CVPhone = cv.Phone,
+                          CVEmail = cv.Email,
+                          EmployerId = cv.Job.AppUser.Id,
+                          EmployerAddress = cv.EmployerAddress,
+                          EmployerCity = cv.City,
+                          EmployerComment = cv.Comment,
+                          EmployerEmail = cv.EmployerEmail,
+                          EmployerPhone = cv.EmployerPhone,
+                          EmployerRating = cv.EmployerRating,
+                          CommentOn = cv.CommentOn
+                      }).Where(cv => cv.EmployerId == id);
             var CVs = await CV.ToListAsync();
             switch (status)
             {
-                case 0: // denied
+                case 0: // từ chối
                     CVs = await CV.Where(cv => cv.CVStatus == 0).ToListAsync();
                     break;
-                case 1: // waiting
+                case 1: // chờ duyệt
                     CVs = await CV.Where(cv => cv.CVStatus == 1).ToListAsync();
                     break;
-                case 2: // accepted and already feedback
+                case 2: // chấp nhận hoặc đã phản hồi
                     CVs = await CV.Where(cv => cv.CVStatus == 2 || cv.CVStatus == 3).ToListAsync();
                     break;
-                case 3: // all but cancel status
+                case 3: // tất cả trừ trạng thái bị hủy
                     CVs = await CV.Where(cv => cv.CVStatus != -1).ToListAsync();
                     break;
                 default:
@@ -97,7 +97,7 @@ namespace JobPortal.WebApp.Areas.Employer.Controllers
             cv.City = model.EmployerCity;
             cv.Comment = model.EmployerComment;
             cv.CommentOn = DateTime.Now;
-            cv.Status = 3; //already feedback
+            cv.Status = 3; // đã phản hồi
             _context.Update(cv);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Apply", new { id = id, status = 3 });

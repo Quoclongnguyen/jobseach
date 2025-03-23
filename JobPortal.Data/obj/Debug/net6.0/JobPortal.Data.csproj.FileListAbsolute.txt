@@ -111,3 +111,39 @@ C:\Users\Admin\Desktop\New folder (4)\job-portal\JobPortal.Data\obj\Debug\net6.0
 C:\Users\Admin\Desktop\New folder (4)\job-portal\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.pdb
 C:\Users\Admin\Desktop\New folder (4)\job-portal\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.genruntimeconfig.cache
 C:\Users\Admin\Desktop\New folder (4)\job-portal\JobPortal.Data\obj\Debug\net6.0\ref\JobPortal.Data.dll
+D:\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Data.deps.json
+D:\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Data.runtimeconfig.json
+D:\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Data.dll
+D:\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Data.pdb
+D:\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Common.dll
+D:\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Common.pdb
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.csproj.AssemblyReference.cache
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.AssemblyInfoInputs.cache
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.AssemblyInfo.cs
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.csproj.CoreCompileInputs.cache
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.sourcelink.json
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPorta.DE0C2107.Up2Date
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.dll
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\refint\JobPortal.Data.dll
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.pdb
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.genruntimeconfig.cache
+D:\DACNN\JobPortal.Data\obj\Debug\net6.0\ref\JobPortal.Data.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Data.deps.json
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Data.runtimeconfig.json
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Data.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Data.pdb
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Common.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\bin\Debug\net6.0\JobPortal.Common.pdb
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.csproj.AssemblyReference.cache
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.AssemblyInfoInputs.cache
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.AssemblyInfo.cs
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.csproj.CoreCompileInputs.cache
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.sourcelink.json
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPorta.DE0C2107.Up2Date
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\refint\JobPortal.Data.dll
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.pdb
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\JobPortal.Data.genruntimeconfig.cache
+D:\DO_AN_CHUYEN_NGHANH\DACNN\DACNN\JobPortal.Data\obj\Debug\net6.0\ref\JobPortal.Data.dll

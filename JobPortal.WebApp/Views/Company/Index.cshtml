@@ -16,24 +16,24 @@
         align-items: center;
         margin-top: 20px;
     }
-    
-    .pagination li {
-        margin: 0 5px;
-    }
 
-    .pagination li a {
-        display: inline-block;
-        padding: 5px 10px;
-        border: 1px solid #ccc;
-        color: #333;
-        text-decoration: none;
-        border-radius: 5px;
-    }
+        .pagination li {
+            margin: 0 5px;
+        }
 
-    .pagination li.active a {
-        background-color: #333;
-        color: #fff;
-    }
+            .pagination li a {
+                display: inline-block;
+                padding: 5px 10px;
+                border: 1px solid #ccc;
+                color: #333;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+            .pagination li.active a {
+                background-color: #333;
+                color: #fff;
+            }
 </style>
 
 <!-- Start banner Area -->
@@ -43,9 +43,9 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    <span>Vietnam Best IT Companies</span>
+                    <span>Các Công Ty CNTT Tốt Nhất Việt Nam</span>
                 </h1>
-                <p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="/company"> All Companies</a></p>
+                <p class="text-white link-nav"><a href="/">Trang Chủ </a>  <span class="lnr lnr-arrow-right"></span>  <a href="/company"> Tất Cả Các Công Ty</a></p>
             </div>
         </div>
     </div>
@@ -59,13 +59,13 @@
                 <!-- Employer list -->
                 @if (Model.Any())
                 {
-                    @for (int i=0; i<Model.Count(); i++)
+                    @for (int i = 0; i < Model.Count(); i++)
                     {
                         var employer = Model.ElementAt(i);
                         <div class="single-post d-flex flex-row">
                             <!-- Employer province -->
                             <div class="thumb" style="align-items:center">
-                                <a href="/job?slug=@employer.Slug"><img style="border-radius:10px" width="200" height="100" src="https://localhost:7211/images/employers/@employer.UrlAvatar" alt="employer image"></a>
+                                <a href="/job?slug=@employer.Slug"><img style="border-radius:10px" width="200" height="100" src="https://localhost:7211/images/employers/@employer.UrlAvatar" alt="hình ảnh công ty"></a>
                                 <ul class="tags" style="justify-content:center; display: grid; border-radius:10px">
                                     <!--Skill-->
                                     <li style="border-radius:10px">
@@ -94,7 +94,7 @@
                                     </div>
                                     <div style="text-align:right; margin-top: 80px">
                                         <ul class="btns">
-                                            <li style="border-radius:10px"><a href="/company/@employer.Slug">View company</a></li>
+                                            <li style="border-radius:10px"><a href="/company/@employer.Slug">Xem công ty</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -106,27 +106,26 @@
                 {
                     <div class="text-center" style="margin-top: 50px;">
                         <img src="~/images/default/oops.png" alt="oops" width="600" height="400" style="margin-bottom: 10px; border-radius:10px">
-                        <h4>Oops! There are currently no employers available.</h4>
+                        <h4>Rất tiếc! Hiện tại không có công ty nào.</h4>
                     </div>
                 }
                 <!--End job list-->
-
                 <!--Page list-->
                 <div class="text-center">
                     <ul class="pagination">
                         @Html.PagedListPager((IPagedList)Model, page =>
-                        Url.Action("Index", new { page }),
-                        new PagedListRenderOptions
+                                 Url.Action("Index", new { page }),
+                                 new PagedListRenderOptions
                         {
-                        Display = PagedListDisplayMode.IfNeeded,
-                        LiElementClasses = new string[] { "page-item" },
-                        UlElementClasses = new string[] { "pagination" },
-                        PageClasses = new string[] { "page-link" },
-                        MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                        LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                        LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                        LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                        LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                            Display = PagedListDisplayMode.IfNeeded,
+                            LiElementClasses = new string[] { "page-item" },
+                            UlElementClasses = new string[] { "pagination" },
+                            PageClasses = new string[] { "page-link" },
+                            MaximumPageNumbersToDisplay = 7, // Số trang tối đa hiển thị
+                            LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                            LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                            LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                            LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
                         })
                     </ul>
                 </div>
@@ -146,13 +145,13 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content col-lg-9">
                 <div class="title text-center">
-                    <h1 class="mb-10 text-white">Join us today without any hesitation</h1>
+                    <h1 class="mb-10 text-white">Tham gia cùng chúng tôi hôm nay mà không ngần ngại</h1>
                     <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                    <a class="primary-btn" href="#">I am a Candidate</a>
-                    <a class="primary-btn" href="#">Request Free Demo</a>
+                    <a class="primary-btn" href="#">Tôi là ứng viên</a>
+                    <a class="primary-btn" href="#">Yêu cầu Demo miễn phí</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End calto-action Area -->
+<!-- End callto-action Area -->

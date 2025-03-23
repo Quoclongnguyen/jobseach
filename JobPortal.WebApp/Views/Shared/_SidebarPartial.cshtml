@@ -27,9 +27,9 @@
 </head>
 
 <div class="col-lg-4 sidebar">
-    <!-- Provinces -->
+    <!-- Khu vực -->
     <div class="single-slidebar">
-        <h4 class="text-center">Jobs by Location <span class="lnr lnr-map-marker"></span></h4>
+        <h4 class="text-center">Việc làm theo khu vực <span class="lnr lnr-map-marker"></span></h4>
         <ul class="cat-list">
             @foreach (var province in ViewBag.ListProvinces)
             {
@@ -40,9 +40,9 @@
             }
         </ul>
     </div>
-    <!-- Skills -->
+    <!-- Kỹ năng -->
     <div class="single-slidebar">
-        <h4 class="text-center">Jobs by Skill <span class="lnr lnr-tag"></span></h4>
+        <h4 class="text-center">Việc làm theo kỹ năng <span class="lnr lnr-tag"></span></h4>
         <ul class="cat-list">
             @foreach (var skill in ViewBag.ListSkills)
             {
@@ -53,15 +53,15 @@
             }
         </ul>
     </div>
-    <!-- Jobs -->
+    <!-- Công việc -->
     <div class="single-slidebar">
-        <h4 class="text-center">Top rated job posts</h4>
+        <h4 class="text-center">Bài đăng việc làm được đánh giá cao</h4>
         <div class="active-relatedjob-carusel">
             @foreach (var job in ViewBag.ListJobs)
             {
                 <div class="single-rated">
                     <a href="/company/@job.AppUser.Slug">
-                        <img style="width: 300px; height: 150px; margin: 0 auto;" src="https://localhost:7211/images/employers/@job.AppUser.UrlAvatar" alt="employer">
+                        <img style="width: 300px; height: 150px; margin: 0 auto;" src="https://localhost:7211/images/employers/@job.AppUser.UrlAvatar" alt="Nhà tuyển dụng">
                     </a>
                     <br />
                     <a href="/job/@job.Slug">
@@ -75,7 +75,7 @@
                         </strong>
                     </div>
                     <ul class="tags" style="justify-content:center; text-align: center; border-radius:10px">
-                        <!-- Skill -->
+                        <!-- Kỹ năng -->
                         <li style="border-radius:10px">
                             <ul class="skill-list" style="list-style: none; padding: 0; margin: 0;">
                                 @foreach (var skill in job.Skills)
@@ -94,19 +94,19 @@
                     <hr />
                     <div style="display:flex; justify-content: space-between;">
                         <div>
-                            <h5><strong>Job Nature: @job.Time.Name</strong></h5>
+                            <h5><strong>Hình thức làm việc: @job.Time.Name</strong></h5>
                             <h5 style="color: blue"><span class="lnr lnr-book"></span> <strong>@job.Title.Name</strong></h5>
                             <h5 style="color: green"><strong>$ @job.MinSalary - @job.MaxSalary USD</strong></h5>
                         </div>
                     </div>
-                    <a href="/job/@job.Slug" style="display: flex; justify-content: center;" class="btns text-uppercase">View job</a>
+                    <a href="/job/@job.Slug" style="display: flex; justify-content: center;" class="btns text-uppercase">Xem công việc</a>
                 </div>
             }
         </div>
     </div>
-    <!-- Blogs -->
+    <!-- Blog -->
     <div class="single-slidebar">
-        <h4 class="text-center">Carrer Advice Blog</h4>
+        <h4 class="text-center">Blog tư vấn nghề nghiệp</h4>
         <div class="blog-list">
             @foreach (var blog in ViewBag.ListBlogs)
             {
@@ -122,6 +122,7 @@
         </div>
     </div>
 </div>
+
 
 @functions {
     public string GetTimeAgo(DateTime? createDate)

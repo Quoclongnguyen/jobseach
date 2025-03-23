@@ -26,10 +26,10 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [Route("")]
         public async Task<IActionResult> Index(int? page)
         {
-            int pageSize = 5; //number of categories per page
+            int pageSize = 5; // Số lượng danh mục trên mỗi trang
 
-            var categoríes = await _context.Categories.OrderByDescending(i => i.Id).ToListAsync();
-            return View(categoríes.ToPagedList(page ?? 1, pageSize));
+            var danhMuc = await _context.Categories.OrderByDescending(i => i.Id).ToListAsync();
+            return View(danhMuc.ToPagedList(page ?? 1, pageSize));
         }
 
         [Route("create")]
@@ -45,13 +45,13 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                Category category = new Category()
+                Category danhMucMoi = new Category()
                 {
                     Name = model.Name,
                     Description = model.Description,
-                    Slug = TextHelper.ToUnsignString(model.Name).ToLower()
+                    Slug = TextHelper.ToUnsignString(model.Name).ToLower() // Chuyển đổi tên thành slug
                 };
-                _context.Categories.Add(category);
+                _context.Categories.Add(danhMucMoi);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -61,8 +61,8 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [Route("update/{id}")]
         public IActionResult Update(int id)
         {
-            var category = _context.Categories.Where(u => u.Id == id).First();
-            return View(category);
+            var danhMuc = _context.Categories.Where(u => u.Id == id).First();
+            return View(danhMuc);
         }
 
         [Route("update/{id}")]
@@ -70,11 +70,11 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, UpdateCategoryViewModel model)
         {
-            Category category = _context.Categories.Where(u => u.Id == id).First();
-            category.Name = model.Name;
-            category.Description = model.Description;
-            category.Slug = TextHelper.ToUnsignString(category.Name).ToLower();
-            _context.Categories.Update(category);
+            var danhMuc = _context.Categories.Where(u => u.Id == id).First();
+            danhMuc.Name = model.Name;
+            danhMuc.Description = model.Description;
+            danhMuc.Slug = TextHelper.ToUnsignString(danhMuc.Name).ToLower(); // Cập nhật slug
+            _context.Categories.Update(danhMuc);
             await _context.SaveChangesAsync();
             return Redirect("/admin/category");
         }
@@ -84,8 +84,8 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         {
             try
             {
-                Category category = _context.Categories.Where(d => d.Id == id).First();
-                _context.Categories.Remove(category);
+                var danhMuc = _context.Categories.Where(d => d.Id == id).First();
+                _context.Categories.Remove(danhMuc);
                 _context.SaveChanges();
                 return Redirect("/admin/category");
             }
@@ -100,8 +100,8 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         {
             foreach (int id in listDelete)
             {
-                var category = await _context.Categories.FindAsync(id);
-                _context.Categories.Remove(category);
+                var danhMuc = await _context.Categories.FindAsync(id);
+                _context.Categories.Remove(danhMuc);
             }
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");

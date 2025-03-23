@@ -6,82 +6,87 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+// Thêm d?ch v? vào container.
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); // Cho phép biên d?ch l?i Razor View trong runtime.
 
 var connectionString = builder.Configuration.GetConnectionString("JobPortalContextConnection")
-    ?? throw new InvalidOperationException("Connection string 'JobPortalContextConnection' not found.");
+    ?? throw new InvalidOperationException("Chu?i k?t n?i 'JobPortalContextConnection' không ???c tìm th?y.");
 
+// C?u hình DbContext v?i SQL Server.
 builder.Services.AddDbContext<DataDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+// C?u hình chính sách cookie.
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
-    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+    // ??nh ngh?a xem có c?n s? ??ng ý c?a ng??i dùng v?i cookie không thi?t y?u hay không.
     options.CheckConsentNeeded = context => true;
-    options.MinimumSameSitePolicy = SameSiteMode.None;
+    options.MinimumSameSitePolicy = SameSiteMode.None; // C?u hình SameSite cho cookie.
 });
 
+// ??ng ký d?ch v? DbContext cho vi?c s? d?ng ng?n h?n (Transient).
 builder.Services.AddTransient<DataDbContext>();
+
 
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
-    options.Password.RequiredLength = 6;
+    options.Password.RequiredLength = 6; // ?? dài m?t kh?u t?i thi?u.
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireUppercase = false; 
+    options.SignIn.RequireConfirmedAccount = false; 
 })
-                .AddEntityFrameworkStores<DataDbContext>()
-                .AddDefaultTokenProviders();
+    .AddEntityFrameworkStores<DataDbContext>() // S? d?ng DbContext cho Identity.
+    .AddDefaultTokenProviders(); // Thêm các nhà cung c?p token m?c ??nh.
 
+// ??ng ký UserManager và SignInManager ?? qu?n lý ng??i dùng và ??ng nh?p.
 builder.Services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
 
-//Session
-builder.Services.AddDistributedMemoryCache();
+// C?u hình Session cho ?ng d?ng.
+builder.Services.AddDistributedMemoryCache(); // S? d?ng b? nh? phân tán cho session.
 builder.Services.AddSession(options => {
-    options.Cookie.Name = "jobportal";
-    options.IdleTimeout = new TimeSpan(0, 30, 0);
-    //options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.Name = "jobportal"; // ??t tên cookie cho session.
+    options.IdleTimeout = new TimeSpan(0, 30, 0); // Th?i gian session h?t h?n (30 phút).
 });
 
+// C?u hình cookie xác th?c.
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-    //options.LoginPath = "/Account/Login";
-    //options.LoginPath = "/login";
+    options.Cookie.HttpOnly = true; // Ch? s? d?ng cookie trong HTTP, không dùng trong JavaScript.
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30); // Th?i gian cookie h?t h?n.
+ 
 });
 
-builder.Services.AddSession();
+builder.Services.AddSession(); // ??ng ký d?ch v? Session.
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// C?u hình pipeline x? lý HTTP request.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseHsts(); // B?t HTTP Strict Transport Security (HSTS) v?i th?i h?n m?c ??nh là 30 ngày.
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // Chuy?n h??ng m?i yêu c?u HTTP sang HTTPS.
 
-app.UseStaticFiles();
+app.UseStaticFiles(); // Cho phép truy c?p các t?p t?nh (CSS, JS, hình ?nh).
 
-app.UseRouting();
+app.UseRouting(); 
 
-app.UseAuthentication(); ;
+app.UseAuthentication(); 
 
-app.UseAuthorization();
+app.UseAuthorization(); 
 
-app.UseSession();
+app.UseSession(); 
 
+// C?u hình tuy?n m?c ??nh cho ?ng d?ng.
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// C?u hình tuy?n dành riêng cho các khu v?c (areas).
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
@@ -90,4 +95,4 @@ app.UseEndpoints(endpoints =>
     );
 });
 
-app.Run();
+app.Run(); 

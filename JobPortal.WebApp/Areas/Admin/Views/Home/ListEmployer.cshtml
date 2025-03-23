@@ -3,7 +3,7 @@
 @using X.PagedList.Mvc.Core;
 @using X.PagedList.Web.Common;
 @{
-    ViewData["Title"] = "All Employer";
+    ViewData["Title"] = "Danh sách nhà tuyển dụng";
 }
 
 <div class="content-wrapper">
@@ -12,24 +12,24 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <h1 class="text-center">List Employer</h1>
+                        <h1 class="text-center">Danh sách nhà tuyển dụng</h1>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>
-                                        Employer Name
+                                        Tên nhà tuyển dụng
                                     </th>
                                     <th>
-                                        Address
+                                        Địa chỉ
                                     </th>
-                                     <th>
-                                        Contact
+                                    <th>
+                                        Liên hệ
                                     </th>
-                                     <th>
+                                    <th>
                                         Website
                                     </th>
                                     <th>
-                                        Description
+                                        Mô tả
                                     </th>
                                 </tr>
                             </thead>
@@ -37,7 +37,6 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        
                                         <td>
                                             @Html.DisplayFor(modelItem => item.FullName)
                                         </td>
@@ -53,28 +52,27 @@
                                         <td>
                                             <div>@Html.Raw(item.Description)</div>
                                         </td>
-                                        
                                     </tr>
                                 }
                             </tbody>
                         </table>
                     </div>
-                    <!--Page list-->
+                    <!-- Danh sách phân trang -->
                     <div class="text-center">
                         <ul class="pagination">
                             @Html.PagedListPager((IPagedList)Model, page =>
-                            Url.Action("ListEmployer", new { page }),
-                            new PagedListRenderOptions
+                                     Url.Action("ListEmployer", new { page }),
+                                     new PagedListRenderOptions
                             {
-                            Display = PagedListDisplayMode.IfNeeded,
-                            LiElementClasses = new string[] { "page-item" },
-                            UlElementClasses = new string[] { "pagination" },
-                            PageClasses = new string[] { "page-link" },
-                            MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                            LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                            LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                            LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                            LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                                Display = PagedListDisplayMode.IfNeeded,
+                                LiElementClasses = new string[] { "page-item" },
+                                UlElementClasses = new string[] { "pagination" },
+                                PageClasses = new string[] { "page-link" },
+                                MaximumPageNumbersToDisplay = 7, // Số trang hiển thị tối đa
+                                LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                                LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                                LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                                LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
                             })
                         </ul>
                     </div>

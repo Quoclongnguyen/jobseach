@@ -6,7 +6,7 @@
 
 @{
     var user = await userManager.GetUserAsync(User);
-    ViewData["Title"] = "Create blog";
+    ViewData["Title"] = "Tạo bài viết";
 }
 
 <script src="//cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
@@ -15,7 +15,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 style="text-align: center" class="card-title">FORM CREATE BLOG</h4>
+                    <h4 style="text-align: center" class="card-title">MẪU TẠO BÀI VIẾT</h4>
                     <br />
                     <div class="col-md-4i">
                         <form asp-action="Create" enctype="multipart/form-data" id="form">
@@ -50,15 +50,15 @@
                                         <label asp-for="Image" class="control-label"></label><span class="text-danger">*</span>
                                         <input type="file" asp-for="Image" class="form-control" accept="image/*" id="imgInp" />
                                         <span asp-validation-for="Image" class="text-danger"></span>
-                                        <img id="blah" src="#" alt="your image" style="width: 390px;" />
+                                        <img id="blah" src="#" alt="Hình ảnh của bạn" style="width: 390px;" />
                                     </div>
                                     <br />
                                     <div class="form-group text-center">
-                                        <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Create" class="btn btn-primary" />
+                                        <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Tạo bài viết" class="btn btn-primary" />
                                     </div>
                                     <br />
                                     <div class="form-group text-center">
-                                        <a class="btn btn-primary" href="/employer/blog/@user.Id">Back to List</a>
+                                        <a class="btn btn-primary" href="/employer/blog/@user.Id">Quay lại danh sách</a>
                                     </div>
                                 </div>
                             </div>
@@ -95,24 +95,24 @@
         function onCreate() {
             if ($('#imgInp').get(0).files.length === 0) {
                 Swal.fire(
-                    'Fail',
-                    'Please select a blog image.',
+                    'Thất bại',
+                    'Vui lòng chọn hình ảnh cho bài viết.',
                     'error'
                 );
-                return; // Stop further execution
+                return; // Dừng thực thi
             }
             Swal.fire({
-                title: 'Add new blog?',
-                text: "Are you sure you want to add a new blog?",
+                title: 'Thêm bài viết mới?',
+                text: "Bạn có chắc chắn muốn thêm bài viết mới?",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: 'Xác nhận'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Success!',
+                        'Thành công!',
                         '',
                         'success'
                     )

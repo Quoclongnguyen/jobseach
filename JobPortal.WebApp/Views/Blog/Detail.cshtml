@@ -4,33 +4,33 @@
     Layout = "_Layout";
 }
 
-<!-- Start banner Area -->
-<section class="banner-area relative" id="home">
-	<div class="overlay overlay-bg"></div>
-	<div class="container">
-		<div class="row d-flex align-items-center justify-content-center">
-			<div class="about-content col-lg-12">
-				<h1 class="text-white">
-					@Model.Title
-				</h1>
-				<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Blog Details</a></p>
-			</div>
-		</div>
-	</div>
+<!-- Khu vực banner bắt đầu -->
+<section class="khu-vuc-banner" id="trang-chu">
+    <div class="lớp-phủ"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="noi-dung col-lg-12">
+                <h1 class="text-trang">
+                    @Model.Title
+                </h1>
+                <p class="text-trang link-nav"><a href="/">Trang Chủ </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Chi Tiết Blog</a></p>
+            </div>
+        </div>
+    </div>
 </section>
-<!-- End banner Area -->
-<!-- Start blog-posts Area -->
-<section class="blog-posts-area section-gap">
+<!-- Khu vực banner kết thúc -->
+<!-- Khu vực bài viết blog bắt đầu -->
+<section class="khu-vuc-bai-viet section-gap">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 post-list blog-post-list">
-                <div class="single-post">
-                    <img class="img-fluid" src="https://localhost:7211/images/blogs/@Model.Image" alt="blog image">
-                    <ul class="tags">
+            <div class="col-lg-8 danh-sach-bai-viet">
+                <div class="bai-viet-don">
+                    <img class="img-fluid" src="https://localhost:7211/images/blogs/@Model.Image" alt="ảnh blog">
+                    <ul class="the">
                         <li>
                             <a href="#">
-									<img style="width: 80px" src="https://localhost:7211/images/employers/@Model.AppUser.UrlAvatar"
-										 alt="blog image"> Content Writer: @Model.Author • @Model.CreateDate.ToString("dddd, yy/MM/yyyy - HH:mm:ss - tt")
+                                <img style="width: 80px" src="https://localhost:7211/images/employers/@Model.AppUser.UrlAvatar"
+                                     alt="ảnh blog"> Người viết: @Model.Author • @Model.CreateDate.ToString("dddd, yy/MM/yyyy - HH:mm:ss - tt")
                             </a>
                         </li>
                     </ul>
@@ -39,22 +39,22 @@
                             @Html.Raw(Model.Title)
                         </h1>
                     </a>
-                    <div class="content-wrap">
+                    <div class="noi-dung-chinh">
                         @Html.Raw(Model.Description)
                     </div>
-                    <div class="content-wrap">
+                    <div class="noi-dung-chinh">
                         @Html.Raw(Model.Content)
                     </div>
-                    <div class="bottom-meta">
-                        <div class="user-details row align-items-center">
-                            <div class="comment-wrap col-lg-6 col-sm-6">
+                    <div class="thong-tin-them">
+                        <div class="chi-tiet-nguoi-dung row align-items-center">
+                            <div class="binh-luan col-lg-6 col-sm-6">
                                 <ul>
-                                    @*<li><a href="#"><span class="lnr lnr-heart"></span>	4 likes</a></li>
-                                    <li><a href="#"><span class="lnr lnr-bubble"></span> 06 Comments</a></li>*@
+                                    @*<li><a href="#"><span class="lnr lnr-heart"></span>	4 lượt thích</a></li>
+                                    <li><a href="#"><span class="lnr lnr-bubble"></span> 06 Bình Luận</a></li>*@
                                     <li><a href="#"><span class="lnr lnr-eye"></span> @Model.Popular Views</a></li>
                                 </ul>
                             </div>
-                            <div class="social-wrap col-lg-6">
+                            <div class="mang-xa-hoi col-lg-6">
                                 <ul>
                                     <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a></li>
@@ -64,6 +64,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     @*<!-- Start nav Area -->
                     <section class="nav-area pt-50 pb-100">

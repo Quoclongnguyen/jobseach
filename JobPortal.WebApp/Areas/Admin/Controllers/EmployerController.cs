@@ -25,42 +25,45 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [Route("{status}")]
         public async Task<IActionResult> Index(int status, int? page)
         {
-            int pageSize = 5; //number of users per page
+            int pageSize = 5; // Số lượng người dùng trên mỗi trang
 
-            var employer = (from emp in _context.AppUsers
-                        orderby emp.CreateDate descending
-                        select new ListEmployersViewWModel()
-                        {
-                            Id = emp.Id,
-                            FullName = emp.FullName,
-                            Description = emp.Description,
-                            Contact = emp.Contact,
-                            Location = emp.Location,
-                            WebsiteURL = emp.WebsiteURL,
-                            UrlAvatar = emp.UrlAvatar,
-                            RegisterDate = emp.CreateDate,
-                            ProvinceName = emp.Province.Name,
-                            Status = emp.Status
-                        });
-            var employers = await employer.ToListAsync();
+            var employersQuery = (from emp in _context.AppUsers
+                                  orderby emp.CreateDate descending
+                                  select new ListEmployersViewWModel()
+                                  {
+                                      Id = emp.Id,
+                                      FullName = emp.FullName,
+                                      Description = emp.Description,
+                                      Contact = emp.Contact,
+                                      Location = emp.Location,
+                                      WebsiteURL = emp.WebsiteURL,
+                                      UrlAvatar = emp.UrlAvatar,
+                                      RegisterDate = emp.CreateDate,
+                                      ProvinceName = emp.Province.Name,
+                                      Status = emp.Status
+                                  });
+
+            List<ListEmployersViewWModel> employers;
+
             switch (status)
             {
-                case 0: // denied
-                    employers = await employer.Where(p => p.Status == 0).ToListAsync();
+                case 0: // Bị từ chối
+                    employers = await employersQuery.Where(p => p.Status == 0).ToListAsync();
                     break;
-                case 1: // pending
-                    employers = await employer.Where(p => p.Status == 1).ToListAsync();
+                case 1: // Đang chờ duyệt
+                    employers = await employersQuery.Where(p => p.Status == 1).ToListAsync();
                     break;
-                case 2: // confirmed
-                    employers = await employer.Where(p => p.Status == 2).ToListAsync();
+                case 2: // Đã xác nhận
+                    employers = await employersQuery.Where(p => p.Status == 2).ToListAsync();
                     break;
-                case 3: // all but admin & newly created account
-                    employers = await employer.Where(p => p.Status != null && p.Status != -1).ToListAsync();
+                case 3: // Tất cả ngoại trừ Admin và tài khoản mới tạo
+                    employers = await employersQuery.Where(p => p.Status != null && p.Status != -1).ToListAsync();
                     break;
                 default:
-                    employers = await employer.Where(p => p.Status != null && p.Status != -1).ToListAsync();
+                    employers = await employersQuery.Where(p => p.Status != null && p.Status != -1).ToListAsync();
                     break;
             }
+
             return View(employers.ToPagedList(page ?? 1, pageSize));
         }
 
@@ -68,18 +71,24 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateStatus(Guid id, int status)
         {
+            // Tìm nhà tuyển dụng theo ID
             var employer = await _context.AppUsers.FirstOrDefaultAsync(user => user.Id == id);
+
+            if (employer == null)
+            {
+                return NotFound($"Không tìm thấy nhà tuyển dụng với ID: {id}");
+            }
+
+            // Cập nhật trạng thái
             employer.Status = status;
             _context.AppUsers.Update(employer);
             await _context.SaveChangesAsync();
 
-            //get id and check 
+            // Lấy thông tin người dùng
             var user = await _userManager.FindByIdAsync(id.ToString());
-            //get role by id
-            var role = await _userManager.GetRolesAsync(user);
 
-            //Check status to set role
-            if (status == 0) //denied
+            // Kiểm tra và cập nhật vai trò theo trạng thái
+            if (status == 0) // Bị từ chối
             {
                 if (await _userManager.IsInRoleAsync(user, "Employer"))
                 {
@@ -87,11 +96,12 @@ namespace JobPortal.WebApp.Areas.Admin.Controllers
                     await _userManager.AddToRoleAsync(user, "User");
                 }
             }
-            else if (status == 2) //confirmed
+            else if (status == 2) // Đã xác nhận
             {
                 await _userManager.RemoveFromRoleAsync(user, "User");
                 await _userManager.AddToRoleAsync(user, "Employer");
             }
+
             return Redirect("/admin/apply-employer/" + status);
         }
     }

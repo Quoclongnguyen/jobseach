@@ -1,14 +1,14 @@
 ﻿@model JobPortal.Data.Entities.Province
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Thêm tỉnh/thành phố";
 }
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title text-center">FORM CREATE PROVINCE</h4>
+                    <h4 class="card-title text-center">FORM THÊM TỈNH/THÀNH PHỐ</h4>
                     <br />
                     <div class="row">
                         <div class="col-md-8 mx-auto">
@@ -19,11 +19,11 @@
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group text-center" style="margin-bottom: 15px">
-                                    <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Create" class="btn btn-primary" />
+                                    <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Thêm mới" class="btn btn-primary" />
                                 </div>
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="text-center">
-                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/province">Back to List</a>
+                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/province">Quay lại danh sách</a>
                                 </div>
                             </form>
                         </div>
@@ -41,17 +41,17 @@
     <script>
         function onCreate() {
             Swal.fire({
-                title: 'Add new province?',
-                text: "Are you sure to add new province?",
+                title: 'Thêm tỉnh/thành phố mới?',
+                text: "Bạn có chắc chắn muốn thêm tỉnh/thành phố mới không?",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Success'
+                confirmButtonText: 'Xác nhận'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Success!',
+                        'Thành công!',
                         '',
                         'success'
                     )

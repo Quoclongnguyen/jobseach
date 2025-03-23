@@ -22,9 +22,9 @@ namespace JobPortal.WebApp.Areas.Employer.Controllers
         [Route("{id}")]
         public IActionResult Index(Guid id, int? page)
         {
-            int pageSize = 5; //number of item per page
+            int pageSize = 5; // số mục mỗi trang
 
-            //job
+            // Công việc
             ViewBag.jobCount = _context.Jobs.Where(cv => cv.AppUserId == id).Count();
             var jobs = _context.Jobs
                 .Where(j => j.AppUserId == id)
@@ -35,7 +35,7 @@ namespace JobPortal.WebApp.Areas.Employer.Controllers
                 .Include(j => j.Province)
                 .ToList();
 
-            //cv
+            // Hồ sơ ứng tuyển
             ViewBag.cvCount = _context.CVs
                 .Where(cv => cv.Job.AppUserId == id)
                 .Include(cv => cv.Job)
@@ -49,7 +49,7 @@ namespace JobPortal.WebApp.Areas.Employer.Controllers
                 .Take(5)
                 .ToList();
 
-            //blog
+            // Bài viết
             ViewBag.blogCount = _context.Blogs.Where(blog => blog.AppUserId == id).Count();
             ViewBag.blogList = _context.Blogs
                 .Where(b => b.AppUserId == id)

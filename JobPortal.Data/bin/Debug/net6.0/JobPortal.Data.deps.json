@@ -600,7 +600,10 @@
           "Microsoft.Extensions.FileProviders.Physical": "6.0.0"
         },
         "runtime": {
-          "JobPortal.Common.dll": {}
+          "JobPortal.Common.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

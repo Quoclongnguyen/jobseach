@@ -5,8 +5,8 @@
 }
 
 <!-- /Logo -->
-<h4 class="mb-2">Login for Employer! 👋</h4>
-<p class="mb-4">Please sign-in to your account and start the adventure</p>
+<h4 class="mb-2">Đăng nhập cho Nhà tuyển dụng! 👋</h4>
+<p class="mb-4">Vui lòng đăng nhập vào tài khoản của bạn để bắt đầu hành trình</p>
 
 <form asp-action="Login" asp-controller="Account" id="account" class="mb-3" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -17,12 +17,12 @@
                class="form-control"
                autocomplete="username"
                aria-required="true"
-               placeholder="Enter your email"
+               placeholder="Nhập email của bạn"
                autofocus />
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="mb-3 form-password-toggle">
-        <label asp-for="Password" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="Password" class="form-label">Mật khẩu</label><span class="text-danger">*</span>
         <div class="input-group input-group-merge">
             <input asp-for="Password"
                    type="password"
@@ -34,18 +34,18 @@
         </div>
     </div>
     <div class="mb-3">
-        <button id="login-submit" class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+        <button id="login-submit" class="btn btn-primary d-grid w-100" type="submit">Đăng nhập</button>
     </div>
 </form>
 
 <p class="text-center">
-    <span>Want to be an employer?</span>
+    <span>Bạn muốn trở thành nhà tuyển dụng?</span>
     <a href="/register-employer/register">
-        <span>Sign up now</span>
+        <span>Đăng ký ngay</span>
     </a>
 </p>
 
-<a href="/login" class="btn btn-primary d-grid w-100" style="position:center">Sign in for User</a>
+<a href="/login" class="btn btn-primary d-grid w-100" style="position:center">Đăng nhập cho Người dùng</a>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

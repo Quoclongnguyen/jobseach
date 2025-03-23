@@ -1,7 +1,7 @@
 ﻿@model JobPortal.Data.Entities.Skill
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Thêm kỹ năng";
 }
 
 <div class="container">
@@ -9,29 +9,29 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title text-center">FORM CREATE SKILL</h4>
+                    <h4 class="card-title text-center">FORM THÊM KỸ NĂNG</h4>
                     <br />
                     <div class="row">
                         <div class="col-md-8 mx-auto">
                             <form asp-action="Create" enctype="multipart/form-data" id="form">
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Name" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Name" class="form-label">Tên kỹ năng</label><span class="text-danger">*</span>
                                     <input asp-for="Name" class="form-control" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                        <label asp-for="Logo" class="control-label"></label><span class="text-danger">*</span>
-                                        <input type="file" asp-for="Logo" class="form-control" accept="image/*" id="imgInp" />
-                                        <span asp-validation-for="Logo" class="text-danger"></span>
-                                        <img id="blah" src="#" alt="your logo" style="width: 522px;" />
+                                    <label asp-for="Logo" class="control-label">Logo</label><span class="text-danger">*</span>
+                                    <input type="file" asp-for="Logo" class="form-control" accept="image/*" id="imgInp" />
+                                    <span asp-validation-for="Logo" class="text-danger"></span>
+                                    <img id="blah" src="#" alt="Logo của bạn" style="width: 522px;" />
                                 </div>
                                 <br />
                                 <div class="form-group text-center" style="margin-bottom: 15px">
-                                    <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Create" class="btn btn-primary" />
+                                    <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Thêm mới" class="btn btn-primary" />
                                 </div>
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="text-center">
-                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/skill">Back to List</a>
+                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/skill">Quay lại danh sách</a>
                                 </div>
                             </form>
                         </div>
@@ -66,24 +66,24 @@
         function onCreate() {
             if ($('#imgInp').get(0).files.length === 0) {
                 Swal.fire(
-                    'Fail',
-                    'Please select a logo image.',
+                    'Thất bại',
+                    'Vui lòng chọn hình ảnh logo.',
                     'error'
                 );
-                return; // Stop further execution
+                return; // Dừng thực thi nếu chưa chọn logo
             }
             Swal.fire({
-                title: 'Add new skill?',
-                text: "Are you sure you want to add a new skill?",
+                title: 'Thêm kỹ năng mới?',
+                text: "Bạn có chắc chắn muốn thêm kỹ năng mới không?",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: 'Xác nhận'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Success!',
+                        'Thành công!',
                         '',
                         'success'
                     )
